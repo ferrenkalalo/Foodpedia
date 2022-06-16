@@ -1,15 +1,24 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, View, StatusBar} from 'react-native';
 import React from 'react';
-import colors from './src/Assets/Colors';
+import Splashscreen from './src/Pages/SplashScreen';
+import Home from './src/Pages/Home';
+import CategoriesHeader from './src/Components/CategoriesHeader';
+import FavButton from './src/Components/FavButton';
+import IngredientsContainer from './src/Components/IngredientsContainer';
+import MenuContainer from './src/Components/MenuContainer';
+import OrderButton from './src/Components/OrderButton';
 
 const App = () => {
   return (
-    <View>
-      <Text style={styles.text}>App</Text>
-      <Image
-        source={require('./src/Assets/Icons/locationIcon.png')}
-        style={{width: 50, height: 50}}
-      />
+    <View style={styles.container}>
+      <StatusBar backgroundColor={'#F6F6F6'} barStyle="dark-content" />
+      {/* <Splashscreen /> */}
+      {/* <Home /> */}
+      <CategoriesHeader title={'FOODS'} />
+      <FavButton />
+      <IngredientsContainer />
+      <MenuContainer />
+      <OrderButton />
     </View>
   );
 };
@@ -17,11 +26,5 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    // fontFamily: 'Inter-Bold',
-    // fontWeight: 'bold',
-    fontFamily: 'Inter-Bold',
-    color: colors.buttonAndTitle,
-  },
+  container: {flex: 1},
 });

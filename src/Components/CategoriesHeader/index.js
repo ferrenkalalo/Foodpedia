@@ -2,10 +2,10 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 
-const CategoriesHeader = ({title}) => {
+const CategoriesHeader = ({onPress, title}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => null}>
+      <TouchableOpacity onPress={onPress}>
         <View>
           <Image
             source={require('../../Assets/Icons/homeIcon.png')}

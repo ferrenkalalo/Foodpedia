@@ -5,10 +5,13 @@ import CategoriesHeader from '../../Components/CategoriesHeader';
 import Search from '../../Components/Search';
 import MenuContainer from '../../Components/MenuContainer';
 
-const Foods = () => {
+const Foods = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <CategoriesHeader title={'FOODS'} />
+      <CategoriesHeader
+        title={'FOODS'}
+        onPress={() => navigation.navigate('Home')}
+      />
       <Search />
       <ScrollView>
         <View style={styles.container}>

@@ -6,7 +6,7 @@ import Search from '../../Components/Search';
 import CategoriesContainer from '../../Components/CategoriesContainer';
 import PopularContainer from '../../Components/PopularContainer';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [find, setFind] = useState();
 
   return (
@@ -18,14 +18,17 @@ const Home = () => {
         <CategoriesContainer
           title={'Foods'}
           source={require('../../Assets/Images/Foods.png')}
+          onPress={() => navigation.navigate('Foods')}
         />
         <CategoriesContainer
           title={'Drinks'}
           source={require('../../Assets/Images/Drinks.png')}
+          onPress={() => navigation.navigate('Drinks')}
         />
         <CategoriesContainer
           title={'Snack'}
           source={require('../../Assets/Images/Snack.png')}
+          onPress={() => navigation.navigate('Snack')}
         />
       </View>
       <Text style={styles.text}>Popular</Text>

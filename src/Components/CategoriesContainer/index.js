@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 
-const CategoriesContainer = ({title, source}) => {
+const CategoriesContainer = ({title, source, onPress}) => {
   return (
     <View style={styles.container}>
       <View>
@@ -12,7 +12,7 @@ const CategoriesContainer = ({title, source}) => {
         <Image source={source} style={{width: 70, height: 70}} />
       </View>
       <View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <View style={styles.circle}>
             <Image
               source={require('../../Assets/Icons/nextIcon.png')}

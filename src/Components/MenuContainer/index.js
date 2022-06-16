@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 15,
     elevation: 5,
+    marginVertical: 15,
   },
   MenuContainer: {
     flexDirection: 'row',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   text: {
-    fontSize: 25,
+    fontSize: 24,
     fontFamily: 'Inter-Bold',
     color: colors.text,
   },

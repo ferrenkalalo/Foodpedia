@@ -7,6 +7,11 @@ import FavButton from './src/Components/FavButton';
 import IngredientsContainer from './src/Components/IngredientsContainer';
 import MenuContainer from './src/Components/MenuContainer';
 import OrderButton from './src/Components/OrderButton';
+import Details from './src/Pages/Details';
+import Categories from './src/Pages/Categories';
+import Foods from './src/Pages/Foods';
+import Drinks from './src/Pages/Drinks';
+import Snack from './src/Pages/Snack';
 
 const App = () => {
   return (
@@ -14,11 +19,9 @@ const App = () => {
       <StatusBar backgroundColor={'#F6F6F6'} barStyle="dark-content" />
       {/* <Splashscreen /> */}
       {/* <Home /> */}
-      <CategoriesHeader title={'FOODS'} />
-      <FavButton />
-      <IngredientsContainer />
-      <MenuContainer />
-      <OrderButton />
+      {/* <Details /> */}
+      {/* <Categories /> */}
+      <Snack />
     </View>
   );
 };

@@ -1,11 +1,16 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Alert} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 
 const OrderButton = () => {
+  const orderPlaced = () => {
+    Alert.alert('Success', 'Your order has been placed', [
+      {text: 'OK', onPress: () => null},
+    ]);
+  };
   return (
     <View>
-      <TouchableOpacity onPress={() => null}>
+      <TouchableOpacity onPress={() => orderPlaced()}>
         <View style={styles.container}>
           <Text style={styles.text}>place order</Text>
         </View>
@@ -18,7 +23,6 @@ export default OrderButton;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20, //hapus
     backgroundColor: colors.buttonAndTitle,
     width: 297,
     height: 57,

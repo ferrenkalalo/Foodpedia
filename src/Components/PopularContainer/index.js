@@ -2,25 +2,29 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 
-const PopularContainer = ({title, source}) => {
+const PopularContainer = ({title, source, onPress}) => {
   return (
-    <View style={styles.container}>
-      <View>
-        <Image
-          source={require('../../Assets/Icons/PopularIcon.png')}
-          style={{width: 40, height: 40}}
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>{title}</Text>
-          <Text>descriptions...</Text>
+    <View>
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.container}>
+          <View>
+            <Image
+              source={require('../../Assets/Icons/PopularIcon.png')}
+              style={{width: 40, height: 40}}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{title}</Text>
+              <Text>descriptions...</Text>
+            </View>
+          </View>
+          <View>
+            <Image
+              source={source}
+              style={{width: 135, height: 100, borderRadius: 20}}
+            />
+          </View>
         </View>
-      </View>
-      <View>
-        <Image
-          source={source}
-          style={{width: 135, height: 100, borderRadius: 20}}
-        />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 20,
     marginTop: 20,
-    elevation: 2,
+    // elevation: 2,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',

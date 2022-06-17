@@ -6,11 +6,11 @@ import FavButton from '../../Components/FavButton';
 import IngredientsContainer from '../../Components/IngredientsContainer';
 import OrderButton from '../../Components/OrderButton';
 
-const Details = () => {
+const Details = ({navigation}) => {
   return (
     <View style={styles.page}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={require('../../Assets/Icons/backIcon.png')}
             style={{width: 40, height: 40}}

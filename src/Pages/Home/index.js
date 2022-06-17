@@ -5,6 +5,7 @@ import Header from '../../Components/HomeHeader';
 import Search from '../../Components/Search';
 import CategoriesContainer from '../../Components/CategoriesContainer';
 import PopularContainer from '../../Components/PopularContainer';
+import {FlatList} from 'react-native-gesture-handler';
 
 const Home = ({navigation}) => {
   const [find, setFind] = useState();
@@ -13,30 +14,31 @@ const Home = ({navigation}) => {
     <View style={styles.container}>
       <Header />
       <Search value={find} onChangeText={text => console.log(text)} />
-      <Text style={styles.text}>Categories</Text>
-      <View style={styles.categories}>
-        <CategoriesContainer
-          title={'Foods'}
-          source={require('../../Assets/Images/Foods.png')}
-          onPress={() => navigation.navigate('Foods')}
-        />
-        <CategoriesContainer
-          title={'Drinks'}
-          source={require('../../Assets/Images/Drinks.png')}
-          onPress={() => navigation.navigate('Drinks')}
-        />
-        <CategoriesContainer
-          title={'Snack'}
-          source={require('../../Assets/Images/Snack.png')}
-          onPress={() => navigation.navigate('Snack')}
-        />
-      </View>
-      <Text style={styles.text}>Popular</Text>
       <ScrollView>
+        <Text style={styles.text}>Categories</Text>
+        <View style={styles.categories}>
+          <CategoriesContainer
+            title={'Foods'}
+            source={require('../../Assets/Images/Foods.png')}
+            onPress={() => navigation.navigate('Foods')}
+          />
+          <CategoriesContainer
+            title={'Drinks'}
+            source={require('../../Assets/Images/Drinks.png')}
+            onPress={() => navigation.navigate('Drinks')}
+          />
+          <CategoriesContainer
+            title={'Snack'}
+            source={require('../../Assets/Images/Snack.png')}
+            onPress={() => navigation.navigate('Snack')}
+          />
+        </View>
+        <Text style={styles.text}>Popular</Text>
         <View style={styles.popular}>
           <PopularContainer
             title={'Mie Ayam Garuda'}
             source={require('../../Assets/Images/mieAyam.png')}
+            onPress={() => navigation.navigate('Details')}
           />
           <PopularContainer
             title={'Ikan Bakar Tampurung'}

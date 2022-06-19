@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 20,
     marginTop: 20,
-    // elevation: 2,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',

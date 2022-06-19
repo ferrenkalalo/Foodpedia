@@ -6,10 +6,12 @@ const MenuContainer = ({
   title = 'Mie Ayam Garuda',
   price = '15.000',
   source = require('../../Assets/Images/mieAyam.png'),
+  loc = 'Manado',
+  onPress = () => null,
 }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress()}>
         <View style={styles.priceContainer}>
           <Image
             source={require('../../Assets/Icons/rupiahIcon.png')}
@@ -25,10 +27,7 @@ const MenuContainer = ({
           </View>
 
           <View>
-            <Image
-              source={source}
-              style={{width: 170, height: 130, borderRadius: 20}}
-            />
+            <Image style={styles.image} source={source} />
           </View>
         </View>
 
@@ -40,7 +39,7 @@ const MenuContainer = ({
             />
           </View>
           <View>
-            <Text style={styles.locationText}>Manado</Text>
+            <Text style={styles.locationText}>{loc}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -60,6 +59,12 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     elevation: 5,
     marginVertical: 15,
+  },
+  image: {
+    width: 170,
+    height: 130,
+    borderRadius: 20,
+    resizeMode: 'contain',
   },
   MenuContainer: {
     flexDirection: 'row',
@@ -85,6 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: 'Inter-Bold',
     color: colors.text,
+    marginLeft: 5,
   },
   text: {
     fontSize: 24,

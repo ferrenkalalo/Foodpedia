@@ -10,7 +10,7 @@ const IngredientsContainer = ({
     <View style={styles.container}>
       <Image
         source={source}
-        style={{width: 70, height: 70, borderRadius: 20}}
+        style={{width: 70, height: 70, borderRadius: 20, resizeMode: 'contain'}}
       />
       <Text style={styles.text}>{text}</Text>
     </View>
@@ -22,17 +22,17 @@ export default IngredientsContainer;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.ingredientsContainer,
-    width: 110,
-    height: 110,
     borderRadius: 15,
     elevation: 5,
-    padding: 5,
-    margin: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginVertical: 10,
+    marginHorizontal: 13,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
   text: {
-    fontSize: 12,
+    fontSize: 13,
     fontFamily: 'Inter-Regular',
     color: colors.text,
   },

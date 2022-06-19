@@ -1,4 +1,11 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 import MenuContainer from '../../Components/MenuContainer';
@@ -6,7 +13,13 @@ import FavButton from '../../Components/FavButton';
 import IngredientsContainer from '../../Components/IngredientsContainer';
 import OrderButton from '../../Components/OrderButton';
 
-const Details = ({navigation}) => {
+const Details = ({route, navigation}) => {
+  const {item} = route.params;
+
+  const renderIngredientsItem = ({item}) => {
+    return <IngredientsContainer source={item.image} text={item.name} />;
+  };
+
   return (
     <View style={styles.page}>
       <View style={styles.header}>
@@ -19,7 +32,12 @@ const Details = ({navigation}) => {
       </View>
 
       <View style={styles.container}>
-        <MenuContainer />
+        <MenuContainer
+          price={item.price}
+          title={item.title}
+          source={item.image}
+          loc={item.location}
+        />
       </View>
 
       <View style={styles.fav}>
@@ -28,17 +46,12 @@ const Details = ({navigation}) => {
 
       <Text style={styles.text}>Ingredients</Text>
       <View style={styles.container}>
-        <IngredientsContainer
-          source={require('../../Assets/Images/Mie.png')}
-          text={'mie'}
-        />
-        <IngredientsContainer
-          source={require('../../Assets/Images/dagingAyam.png')}
-          text={'daging ayam'}
-        />
-        <IngredientsContainer
-          source={require('../../Assets/Images/sayurSawi.png')}
-          text={'sayur sawi'}
+        <FlatList
+          data={item.ingredients}
+          renderItem={renderIngredientsItem}
+          keyExtractor={item => item.id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
       <View style={styles.button}>

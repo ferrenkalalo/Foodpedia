@@ -1,11 +1,26 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import React from 'react';
 import colors from '../../Assets/Colors';
 import CategoriesHeader from '../../Components/CategoriesHeader';
 import Search from '../../Components/Search';
 import MenuContainer from '../../Components/MenuContainer';
+import DrinksData from '../../Assets/Data/DrinksData';
 
 const Drinks = ({navigation}) => {
+  const renderDrinksItem = ({item}) => {
+    return (
+      <MenuContainer
+        price={item.price}
+        title={item.title}
+        source={item.image}
+        loc={item.location}
+        onPress={() => {
+          navigation.navigate('Details', {item: item});
+        }}
+      />
+    );
+  };
+
   return (
     <View style={styles.page}>
       <CategoriesHeader
@@ -15,35 +30,11 @@ const Drinks = ({navigation}) => {
       <Search />
       <ScrollView>
         <View style={styles.container}>
-          <MenuContainer
-            price={'10.000'}
-            title={'Es Kelapa Muda'}
-            source={require('../../Assets/Images/KelapaMuda.png')}
-          />
-          <MenuContainer
-            price={'30.000'}
-            title={'Bubble Tea'}
-            source={require('../../Assets/Images/BubbleTea.png')}
-          />
-          <MenuContainer
-            price={'15.000'}
-            title={'Coffee Latte'}
-            source={require('../../Assets/Images/CoffeeLatte.png')}
-          />
-          <MenuContainer
-            price={'10.000'}
-            title={'Es Kelapa Muda'}
-            source={require('../../Assets/Images/KelapaMuda.png')}
-          />
-          <MenuContainer
-            price={'30.000'}
-            title={'Bubble Tea'}
-            source={require('../../Assets/Images/BubbleTea.png')}
-          />
-          <MenuContainer
-            price={'15.000'}
-            title={'Coffee Latte'}
-            source={require('../../Assets/Images/CoffeeLatte.png')}
+          <FlatList
+            data={DrinksData}
+            renderItem={renderDrinksItem}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
           />
         </View>
       </ScrollView>
